@@ -3,7 +3,6 @@ const bot = new Discord.Client();
 
 const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 
-const ydtl = require("ytdl-core");
 
 var PREFIX = '|';
 
@@ -46,4 +45,4 @@ bot.on('message', message=>{
 
 
 
-bot.login(token);
+bot.login(process.env.BOT_TOKEN);
