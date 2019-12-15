@@ -5,7 +5,7 @@ const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 var PREFIX = '|';
 var version = '1.0.1'
 
-let totalSeconds = (client.uptime / 1000);
+let totalSeconds = (bot.uptime / 1000);
 let days = Math.floor(totalSeconds / 86400);
 let hours = Math.floor(totalSeconds / 3600);
 totalSeconds %= 3600;
