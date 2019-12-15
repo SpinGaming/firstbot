@@ -45,10 +45,6 @@ bot.on('message', message=>{
             message.channel.sendMessage('The prefix is now: ' + PREFIX);
             };
         break;
-
-        case 'myavatar':
-            message.reply("Here's your profile image!" + message.user.avatarURL)
-        break;
     }
 })
 
