@@ -5,7 +5,29 @@ const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 var PREFIX = '|';
 var version = '1.0.1'
 
-//Credits to @Christopher#8008 for the uptime code!
+
+
+bot.on('ready', () =>{
+    console.log('This Bot Is Online!');
+})
+
+bot.on('message', message=>{
+
+    let args = message.content.substring(PREFIX.length).split(" ");
+
+    switch(args[0]){
+        case 'ping':
+            message.channel.sendMessage('Pong!')
+        break;
+        
+        case 'clear':
+            if(!args[1]) return message.reply('Error please define the command!')
+            message.channel.bulkDelete(args[1]);
+        break;
+
+        case 'info':
+
+                //Credits to @Christopher#8008 for the uptime code!
 
 function convertMS(ms) {
     var d, h, m, s;
@@ -34,25 +56,6 @@ user = member.user;
 
 //End of Uptime code
 
-bot.on('ready', () =>{
-    console.log('This Bot Is Online!');
-})
-
-bot.on('message', message=>{
-
-    let args = message.content.substring(PREFIX.length).split(" ");
-
-    switch(args[0]){
-        case 'ping':
-            message.channel.sendMessage('Pong!')
-        break;
-        
-        case 'clear':
-            if(!args[1]) return message.reply('Error please define the command!')
-            message.channel.bulkDelete(args[1]);
-        break;
-
-        case 'info':
             const embed = new Discord.RichEmbed()
             .setTitle("Josh's Slave")
             .setColor(0x7289DA)
