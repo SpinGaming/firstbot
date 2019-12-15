@@ -33,7 +33,7 @@ bot.on('message', message=>{
             .addField('Developer:', '@Joshh#0922', true)
             .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
             .setFooter("Josh's Slave Since 2019")
-            .setTimestamp(bot.uptime)
+            .timestamp(bot.uptime)
             message.channel.sendEmbed(embed);
         break;
         
