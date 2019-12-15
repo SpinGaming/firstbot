@@ -1,10 +1,11 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
+const ytdl = require("ytdl-core");
 
 var PREFIX = '|';
 var version = '1.0.1';
-
+var servers = {};
 
 
 bot.on('ready', () => {
@@ -46,7 +47,49 @@ bot.on('message', message => {
                 message.channel.sendMessage('The prefix is now: ' + PREFIX);
             };
             break;
+        
+        case 'play':
 
+            function play(connection, message){
+                var server = servers[message.guild.id];
+
+                server.dispatcher = connection.playStream(ytdl(server.queue[0], { filter: "audioonly"}));
+
+                server.queue.shift();
+
+                server.dispatcher.on("end", function(){
+                    if(server.queue[0]){
+                        play(connection, message);
+                    } else {
+                        connection.disconnect();
+                    }
+                })
+            }
+
+            
+                if(!args[1]){
+                    message.channel.send("You need to provide a link!");
+                    return;
+                }
+
+                if(!message.member.voiceChannel){
+                    message.channel.send("You must be in a channel to play songs!");
+                    return;
+                }
+
+                if(!servers[message.guild.id]) servers[message.guild.id] = {
+                    queue: []
+                }
+
+                var server = servers[message.guild.id];
+
+                server.queue.push(args[1]);
+
+                if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
+                    play(connection, message);
+                })
+
+            break;
     }
 })
 
