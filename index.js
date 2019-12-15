@@ -27,7 +27,7 @@ bot.on('message', message => {
 
         case 'info':
 
-            let embed = new Discord.RichEmbed()
+            const embed = new Discord.RichEmbed()
                 .setTitle("Josh's Slave")
                 .setColor(0x7289DA)
                 .addField('Prefix:', PREFIX)
@@ -36,7 +36,7 @@ bot.on('message', message => {
                 .addField('Developer:', '@Joshh#0922', true)
                 .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
                 .setFooter('ID: ${bot.user.id} | Bot Created')
-                .setTimestamp(moment.utc(bot.user.createdAt).format('DD.MM.YYYY'));
+                .setTimestamp(moment.utc(bot.user.createdAt).format('MM.DD.YYYY'));
             message.channel.send({ embed: embed });
             break;
 
