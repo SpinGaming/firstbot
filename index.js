@@ -7,75 +7,75 @@ var version = '1.0.1'
 
 
 
-bot.on('ready', () =>{
+bot.on('ready', () => {
     console.log('This Bot Is Online!');
 })
 
-bot.on('message', message=>{
+bot.on('message', message => {
 
     let args = message.content.substring(PREFIX.length).split(" ");
 
-    switch(args[0]){
+    switch (args[0]) {
         case 'ping':
             message.channel.sendMessage('Pong!')
-        break;
-        
+            break;
+
         case 'clear':
-            if(!args[1]) return message.reply('Error please define the command!')
+            if (!args[1]) return message.reply('Error please define the command!')
             message.channel.bulkDelete(args[1]);
-        break;
+            break;
 
         case 'info':
 
-                //Credits to @Christopher#8008 for the uptime code!
+            //Credits to @Christopher#8008 for the uptime code!
 
-function convertMS(ms) {
-    var d, h, m, s;
-    s = Math.floor(ms / 1000);
-    m = Math.floor(s / 60);
-    s = s % 60;
-    h = Math.floor(m / 60);
-    m = m % 60;
-    d = Math.floor(h / 24);
-    h = h % 24;
-    return {
-        d: d
-        , h: h
-        , m: m
-        , s: s
-    };
-};
-
-let u = convertMS(bot.uptime);
-let uptime = u.d + " days : " + u.h + " hours : " + u.m + " minutes : " + u.s + " seconds"
-
-const duration = moment.duration(bot.uptime)
-
-let member = message.guild.member
-user = member.user;
-
-//End of Uptime code
-
-            const embed = new Discord.RichEmbed()
-            .setTitle("Josh's Slave")
-            .setColor(0x7289DA)
-            .addField('Prefix:', PREFIX,)
-            .addField('Version:', version)
-            .addField('Bot Uptime:', uptime)
-            .addField('Employed In:', message.guild.name, true)
-            .addField('Developer:', '@Joshh#0922', true)
-            .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
-            .setFooter('ID: ${bot.user.id} | Bot Created')
-            .setTimestamp(moment.utc(bot.user.createdAt).format('DD.MM.YYYY'));
-            message.channel.send({ embed: embed });
-        break;
-        
-        case 'prefix':
-            if(!args[1]){ return message.reply('You need to tell me what to listen for!')} else{
-            PREFIX = args[1];
-            message.channel.sendMessage('The prefix is now: ' + PREFIX);
+            function convertMS(ms) {
+                var d, h, m, s;
+                s = Math.floor(ms / 1000);
+                m = Math.floor(s / 60);
+                s = s % 60;
+                h = Math.floor(m / 60);
+                m = m % 60;
+                d = Math.floor(h / 24);
+                h = h % 24;
+                return {
+                    d: d
+                    , h: h
+                    , m: m
+                    , s: s
+                };
             };
-        break;
+
+            let u = convertMS(bot.uptime);
+            let uptime = u.d + " days : " + u.h + " hours : " + u.m + " minutes : " + u.s + " seconds"
+
+            const duration = moment.duration(bot.uptime)
+
+            let member = message.guild.member
+            user = member.user;
+
+            //End of Uptime code
+
+            let embed = new Discord.RichEmbed()
+                .setTitle("Josh's Slave")
+                .setColor(0x7289DA)
+                .addField('Prefix:', PREFIX)
+                .addField('Version:', version)
+                .addField('Bot Uptime:', uptime)
+                .addField('Employed In:', message.guild.name, true)
+                .addField('Developer:', '@Joshh#0922', true)
+                .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
+                .setFooter('ID: ${bot.user.id} | Bot Created')
+                .setTimestamp(moment.utc(bot.user.createdAt).format('DD.MM.YYYY'));
+            message.channel.send({ embed: embed });
+            break;
+
+        case 'prefix':
+            if (!args[1]) { return message.reply('You need to tell me what to listen for!') } else {
+                PREFIX = args[1];
+                message.channel.sendMessage('The prefix is now: ' + PREFIX);
+            };
+            break;
 
     }
 })
