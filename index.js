@@ -47,7 +47,7 @@ bot.on('message', message=>{
         break;
 
         case 'myinfo':
-            var ProfileEmbed = new Discord.RichEmbed()
+            const ProfileEmbed = new Discord.RichEmbed()
             .setTitle(message.user.username)
             .setColor(0x7289DA)
             .addField("User created: " + message.user.createdTimestamp)
