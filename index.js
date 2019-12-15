@@ -36,7 +36,7 @@ bot.on('message', message => {
                 .addField('Developer:', '@Joshh#0922', true)
                 .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
                 .setFooter('**' + 'ID: '+ bot.user.id +" | Josh's Slave since:" + '**')
-                .setTimestamp('**' + bot.user.createdAt + '**');
+                .setTimestamp(bot.user.createdAt);
             message.channel.sendEmbed(embed);
             break;
 
