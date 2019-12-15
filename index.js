@@ -47,7 +47,7 @@ bot.on('message', message=>{
         break;
 
         case 'myavatar':
-            message.reply("Here's your profile image!" + message.avatar.avatarURL)
+            message.reply("Here's your profile image!" + message.user.avatarURL)
         break;
     }
 })
