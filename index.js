@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 
 const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 
+const ydtl = require("ytdl-core");
 
 var PREFIX = '|';
 
@@ -40,9 +41,13 @@ bot.on('message', message=>{
             message.channel.sendEmbed(embed);
         break;
         
+        case 'prefix':
+            if(!args[1]) return message.reply('You need to tell me what to listen for!')
+            var PREFIX = args[1];
+        break;
     }
 })
 
 
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(token);
