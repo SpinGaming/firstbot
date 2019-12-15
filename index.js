@@ -37,7 +37,7 @@ bot.on('message', message => {
                 .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
                 .setFooter('ID: ${bot.user.id} | Bot Created')
                 .setTimestamp(moment.utc(bot.user.createdAt).format('MM.DD.YYYY'));
-            message.channel.send({ embed: embed });
+            message.channel.sendEmbed(embed);
             break;
 
         case 'prefix':
