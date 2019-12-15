@@ -67,7 +67,7 @@ user = member.user;
             .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
             .setFooter('ID: ${bot.user.id} | Bot Created')
             .setTimestamp(moment.utc(bot.user.createdAt).format('DD.MM.YYYY'));
-            message.channel.sendEmbed(embed);
+            message.channel.send({ embed: embed });
         break;
         
         case 'prefix':
