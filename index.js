@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 
 var PREFIX = '|';
-var version = '1.0.1'
+var version = '1.0.1';
 
 
 
@@ -35,7 +35,7 @@ bot.on('message', message => {
                 .addField('Employed In:', message.guild.name, true)
                 .addField('Developer:', '@Joshh#0922', true)
                 .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
-                .setFooter('**' + 'ID: '+ bot.user.id +" | Josh's Slave since:" + '**')
+                .setFooter('ID: '+ bot.user.id +" | Josh's Slave since:")
                 .setTimestamp(bot.user.createdAt);
             message.channel.sendEmbed(embed);
             break;
