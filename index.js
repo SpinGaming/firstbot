@@ -5,12 +5,12 @@ const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 var PREFIX = '|';
 var version = '1.0.1'
 
-let totalSeconds = (bot.uptime / 1000);
-let days = Math.floor(totalSeconds / 86400);
-let hours = Math.floor(totalSeconds / 3600);
+var totalSeconds = (bot.uptime / 1000);
+var days = Math.floor(totalSeconds / 86400);
+var hours = Math.floor(totalSeconds / 3600);
 totalSeconds %= 3600;
-let minutes = Math.floor(totalSeconds / 60);
-let seconds = totalSeconds % 60;
+var minutes = Math.floor(totalSeconds / 60);
+var seconds = totalSeconds % 60;
 
 
 
@@ -38,7 +38,7 @@ bot.on('message', message=>{
             .setColor(0x7289DA)
             .addField('Prefix:', PREFIX,)
             .addField('Version:', version)
-            .addField('Bot Uptime: ' + days + ':' + hours + ':' + minutes + ':' + seconds)
+            .addField('Bot Uptime:', days + ':' + hours + ':' + minutes + ':' + seconds)
             .addField('Employed In:', message.guild.name, true)
             .addField('Developer:', '@Joshh#0922', true)
             .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
