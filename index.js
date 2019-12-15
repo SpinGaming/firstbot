@@ -45,6 +45,17 @@ bot.on('message', message=>{
             message.channel.sendMessage('The prefix is now: ' + PREFIX);
             };
         break;
+
+        case 'myinfo':
+            var ProfileEmbed = new Discord.RichEmbed()
+            .setTitle(message.user.username)
+            .setColor(0x7289DA)
+            .addField("User created: " + message.user.createdTimestamp)
+            .setThumbnail(message.user.avatarURL)
+            .setFooter("User ID: " + message.user.id)
+            message.channel.sendEmbed(ProfileEmbed);
+            message.delete(2000).catch(console.error);
+        break;
     }
 })
 
