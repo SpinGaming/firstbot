@@ -50,7 +50,7 @@ bot.on('message', message=>{
             const ProfileEmbed = new Discord.RichEmbed()
             .setTitle(message.user.username)
             .setColor(0x7289DA)
-            .addField("User created: " + message.user.createdTimestamp)
+            .addField("User created: ", message.user.createdTimestamp)
             .setThumbnail(message.user.avatarURL)
             .setFooter("User ID: " + message.user.id)
             message.channel.sendEmbed(ProfileEmbed);
