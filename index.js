@@ -36,7 +36,7 @@ bot.on('message', message => {
                 .addField('Developer:', '@Joshh#0922', true)
                 .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
                 .setFooter('ID: '+ bot.user.id +' | Bot Created')
-                .setTimestamp(moment.utc(bot.user.createdAt).format('MM.DD.YYYY'));
+                .setTimestamp(Date.gmt(bot.user.createdAt).format('DD.MM.YYYY'));
             message.channel.sendEmbed(embed);
             break;
 
