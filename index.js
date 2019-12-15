@@ -44,6 +44,7 @@ bot.on('message', message=>{
         case 'prefix':
             if(!args[1]) return message.reply('You need to tell me what to listen for!')
             var PREFIX = args[1];
+            message.channel.sendMessage('The prefix is now: ' + PREFIX);
         break;
     }
 })
