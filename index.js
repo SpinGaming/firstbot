@@ -5,11 +5,34 @@ const token = 'NjU1NDMwMTExODc2ODc0Mjcx.XfT-7A.H4QGBDzLKZpfk6tqeraLDwLvb6Q';
 var PREFIX = '|';
 var version = '1.0.1'
 
-var days = hours / 24;
-var hours = minutes / 60
-var minutes = seconds / 60;
-var seconds = bot.uptime / 1000;
+//Credits to @Christopher#8008 for the uptime code!
 
+function convertMS(ms) {
+    var d, h, m, s;
+    s = Math.floor(ms / 1000);
+    m = Math.floor(s / 60);
+    s = s % 60;
+    h = Math.floor(m / 60);
+    m = m % 60;
+    d = Math.floor(h / 24);
+    h = h % 24;
+    return {
+        d: d
+        , h: h
+        , m: m
+        , s: s
+    };
+};
+
+let u = convertMS(bot.uptime);
+let uptime = u.d + " days : " + u.h + " hours : " + u.m + " minutes : " + u.s + " seconds"
+
+const duration = moment.duration(bot.uptime)
+
+let member = message.guild.member
+user = member.user;
+
+//End of Uptime code
 
 bot.on('ready', () =>{
     console.log('This Bot Is Online!');
@@ -35,12 +58,12 @@ bot.on('message', message=>{
             .setColor(0x7289DA)
             .addField('Prefix:', PREFIX,)
             .addField('Version:', version)
-            .addField('Bot Uptime:', days +':'+ hours +':'+ minutes +':' +seconds)
+            .addField('Bot Uptime:', uptime)
             .addField('Employed In:', message.guild.name, true)
             .addField('Developer:', '@Joshh#0922', true)
             .setThumbnail("https://cdn-images-1.medium.com/max/1600/1*n4-mfREc-TgooqGwu2YHnw.png")
-            .setFooter("Josh's Slave Since 2019")
-            .setTimestamp(Date.now())
+            .setFooter('ID: ${bot.user.id} | Bot Created')
+            .setTimestamp(moment.utc(bot.user.createdAt).format('DD.MM.YYYY'));
             message.channel.sendEmbed(embed);
         break;
         
