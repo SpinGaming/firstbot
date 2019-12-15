@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
-    
   },
   "author": "Joshh",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "node-ffmpeg": "0.0.0",
+    "ytdl-core": "^1.0.3"
   }
 }
